@@ -50,7 +50,7 @@ sections:
         chapter_number: 7
         description: ""
         has_lab: true
-        lab_file: lab05.md
+        lab_file: lab07.md
 
       - title: Comparing GUIs
         file: ch08.md
@@ -62,7 +62,7 @@ sections:
         chapter_number: 9
         description: ""
         has_lab: true
-        lab_file: lab06.md
+        lab_file: lab09.md
 
   - title: Managing Your System
     section_number: 3
@@ -72,14 +72,14 @@ sections:
         chapter_number: 10
         description: ""
         has_lab: true
-        lab_file: lab07.md
+        lab_file: lab10.md
 
       - title: Handling Storage
         file: ch11.md
         chapter_number: 11
         description: ""
         has_lab: true
-        lab_file: lab08.md
+        lab_file: lab11.md
 
       - title: Protecting Files
         file: ch12.md
@@ -91,7 +91,7 @@ sections:
         chapter_number: 13
         description: ""
         has_lab: true
-        lab_file: lab09.md
+        lab_file: lab13.md
 
       - title: Tending Kernel Modules
         file: ch14.md
@@ -106,7 +106,7 @@ sections:
         chapter_number: 15
         description: ""
         has_lab: true
-        lab_file: lab10.md
+        lab_file: lab15.md
 
       - title: Looking at Access and Authentication Methods
         file: ch16.md
@@ -118,14 +118,14 @@ sections:
         chapter_number: 17
         description: ""
         has_lab: true
-        lab_file: lab11.md
+        lab_file: lab17.md
 
       - title: Overseeing Linux Firewalls
         file: ch18.md
         chapter_number: 18
         description: ""
         has_lab: true
-        lab_file: lab12.md
+        lab_file: lab18.md
 
       - title: Embracing Best Security Practices
         file: ch19.md
@@ -140,14 +140,14 @@ sections:
         chapter_number: 20
         description: ""
         has_lab: true
-        lab_file: lab13.md
+        lab_file: lab20.md
 
       - title: Optimizing Performance
         file: ch21.md
         chapter_number: 21
         description: ""
         has_lab: true
-        lab_file: lab14.md
+        lab_file: lab21.md
 
       - title: Investigating User Issues
         file: ch22.md
@@ -164,7 +164,7 @@ sections:
         chapter_number: 24
         description: ""
         has_lab: true
-        lab_file: lab15.md
+        lab_file: lab24.md
 
   - title: Automating Your System
     section_number: 6
@@ -174,14 +174,14 @@ sections:
         chapter_number: 25
         description: ""
         has_lab: true
-        lab_file: lab16.md
+        lab_file: lab25.md
 
       - title: Python Concepts
         file: ch26.md
         chapter_number: 26
         description: ""
         has_lab: true
-        lab_file: lab17.md
+        lab_file: lab26.md
 
       - title: Automating Jobs
         file: ch27.md
