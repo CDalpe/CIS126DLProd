@@ -1,7 +1,8 @@
-from flask import Flask, request, send_file, render_template, jsonify
+from flask import Flask, send_file, render_template
 import markdown, yaml, os
 
-app = Flask (__name__)
+app = Flask(__name__)
+base_dir = os.path.dirname(os.path.abspath(__file__))
 
 @app.route("/")
 def home():
