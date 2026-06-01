@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Chris Dalpe">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <nav aria-label="Course Navigation">
+        <a href="/">← Home</a>
+        {% for section in course.sections %}
+            <div class="section">
+            <h2>{{section.title}}</h2> 
+        {% for chapter in section.chapters %} 
+            <div class="chapter">
+            <a href="{{ url_for('show_chapter', chapter_number=chapter.chapter_number) }}">{{ chapter.title }}</a>
+        {% if chapter.has_lab %} 
+            <div><a href="{{ url_for('show_lab', chapter_number=chapter.chapter_number) }}">Lab {{ chapter.chapter_number}}</a>
+        </div>{% endif %}
+
+        </div>{% endfor %}
+        
+        </div>{% endfor %}
+    </nav>
+
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

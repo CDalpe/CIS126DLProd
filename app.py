@@ -5,14 +5,18 @@ app = Flask(__name__)
 
 base_dir = os.path.dirname(os.path.abspath(__file__))
 
-@app.route("/")
-def home():
-    return render_template('home.html')
-
 course_data = None
 with app.app_context():
     with open(os.path.join(base_dir, 'course.yaml'), 'r') as f:
         course_data = yaml.safe_load(f)
+
+@app.context_processor
+def inject_course_data():
+    return {'course': course_data}
+
+@app.route("/")
+def home():
+    return render_template('home.html')
 
 @app.route('/chapter/<int:chapter_number>')
 def show_chapter(chapter_number):

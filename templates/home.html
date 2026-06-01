@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-    <meta name = "author" content="Chris Dalpe">
-    <meta name = "home page" content = "Intro to Linux">
+{% extends 'base.html' %}
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-    </head>
-    <body>
+{% block title %}
+    Linux+ Class
+{% endblock %}
 
-    </body>
-</html>
+{% block content %}
+    <h1>Introduction to Technical Linux</h1>
+        <h2>Course Overview</h2>
+            <p>Lorem Ipsum</p>
+        <h2>Getting Started</h2>
+            <p>Lorem Ipsum</p>
+{% endblock %}
