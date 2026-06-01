@@ -1,0 +1,230 @@
+:root{
+    --bg-color: #f5f5f5;
+    --sidebar-bg: #1e2a3a;
+    --sidebar-text: #ffffff;
+    --content-bg: #ffffff;
+    --text-color:#1a1a1a;
+    --link-color: #0066cc;
+    --heading-color: #1e2a3a;
+    --code-color: #1a1a1a;
+    --code-bg: #e8e8e8;
+    --border-color: #1a1a1a;
+    --font-body: Georgia, serif;
+    --font-code: Georgia, serif;
+}
+
+[data-theme="professional"] {
+    --bg-color: #f5f5f5;
+    --sidebar-bg: #1e2a3a;
+    --sidebar-text: #ffffff;
+    --content-bg: #ffffff;
+    --text-color:#1a1a1a;
+    --link-color: #0066cc;
+    --heading-color: #1e2a3a;
+    --code-color: #1a1a1a;
+    --code-bg: #e8e8e8;
+    --border-color: #1a1a1a;
+    --font-body: Georgia, serif;
+    --font-code: Georgia, serif;
+}
+
+[data-theme="high-contrast"] {
+    --bg-color: #000000;
+    --sidebar-bg: #000000;
+    --sidebar-text: #ffffff;
+    --content-bg: #000000;
+    --text-color: #ffffff;
+    --link-color: #ffff00;
+    --heading-color: white;
+    --code-color: #ffffff;
+    --code-bg: #000000;
+    --border-color: #ffffff;
+    --font-body: Georgia, serif;
+    --font-code: Georgia, serif;
+}
+
+[data-theme="h@x0r"] {
+    --bg-color: #0d0d0d;
+    --sidebar-bg: #000000;
+    --sidebar-text: #00ff41;
+    --content-bg: #0d0d0d;
+    --text-color: #00ff41;
+    --link-color: #00ff41;
+    --heading-color: white;
+    --code-color: #ffb000;
+    --code-bg: #ffb000;
+    --border-color: blue;
+    --font-body: 'Courier New', monospace;
+    --font-code: 'Courier New', monospace;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.skip-link {
+    position: absolute;
+    top: -9999999999px;
+}
+
+.skip-link:focus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--link-color);
+    background-color: var(--bg-color);
+    padding: 8px 16px;
+    z-index: 9999;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+}
+
+main {
+    margin-left: 260px;
+    padding: 2rem;
+    background-color: var(--content-bg);
+    min-height: 100vh;
+
+}
+
+#sidebar a {
+    display:block;
+    padding: 6px 16px;
+    color: var(--sidebar-text);
+    text-decoration: none;
+}
+
+#sidebar a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+#sidebar h2 {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--sidebar-text);
+    opacity: 0.7;
+}
+
+.section {
+    margin-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.chapter {
+    padding-left: 8px;
+}
+
+main h1 {
+    font-size: 2rem;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    color: var(--heading-color);
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+main p {
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+main a{
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+nav[aria-label="Chapter Navigation"] {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+nav[aria-label="Chapter Navigation"] a {
+    color: var(--link-color);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid var(--border-color);
+}
+
+nav[aria-label="Chapter Navigation"] a:hover {
+    background-color: var(--link-color);
+    color: var(--content-bg);
+}
+
+code {
+    font-family: var(--font-code);
+    background-color: var(--code-bg);
+    color: var(--code-color);
+    padding: 2px 6px;
+    border-radius: 3px;
+}
+
+pre {
+    font-family: var(--font-code);
+    background-color: var(--code-bg);
+    color: var(--code-color);
+    padding: 1rem;
+    overflow-x: auto;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+#theme-selector {
+    display: flex;
+    padding: 8px;
+    gap: 4px;
+}
+
+#theme-selector button {
+    flex: 1;
+    padding: 4px 8px;
+    font-size: 0.55rem;
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    border-radius: 3px;
+}
+
+#theme-selector button:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+#theme-label {
+    color: var(--sidebar-text);
+    font-size: 0.65rem;
+    opacity: 0.7;
+    white-space: nowrap;
+    align-self: center;
+}

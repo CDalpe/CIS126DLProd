@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Chris Dalpe">
     <title>{% block title %}{% endblock %}</title>
+    <script>
+        const theme = localStorage.getItem('theme') || 'professional';
+        document.documentElement.setAttribute('data-theme', theme)
+    </script>
     <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <nav aria-label="Course Navigation">
-        <a href="/">← Home</a>
+    <nav aria-label="Course Navigation" id="sidebar">
+            <div id="theme-selector">
+                <span id="theme-label">Theme:
+                <button data-theme-value="professional" onclick="localStorage.setItem('theme', 'professional'); document.documentElement.setAttribute('data-theme', 'professional')">Professional</button>
+                <button data-theme-value="high-contrast" onclick="localStorage.setItem('theme', 'high-contrast'); document.documentElement.setAttribute('data-theme', 'high-contrast')">High Contrast</button>
+                <button data-theme-value="h@x0r" onclick="localStorage.setItem('theme', 'h@x0r'); document.documentElement.setAttribute('data-theme', 'h@x0r')">h@x0r</button>
+                </span>
+            </div>
+    <a href="/">← Home</a>
         {% for section in course.sections %}
             <div class="section">
             <h2>{{section.title}}</h2> 
