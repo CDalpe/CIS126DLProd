@@ -1,18 +1,18 @@
-{% extends base.html %}
+{% extends 'base.html' %}
 
 
+{% block title %}
+{{ chapter.title }}
+{% endblock %}
 
 {% block content %}
+
 <h1>{{chapter.title}}</h1>
 <div>{{ content | safe }}</div>
 <nav aria-label="Chapter Navigation">
-    {% set current_chapter = 'chapter.chapter_number'}
-    {% set previous_chapter = 'chapter.chapter_number' - 1}
-    {% set next_chapter = 'chapter.chapter_number' + 1 }
-    {% if current_chapter != 1}
-    <div><a href="{{ url_for('show_chapter', chapter_number = chapter.chapter_number - 1)}}"></a>Previous: {previous_chapter.chapter_number} { previous_chapter.title }</div>
-    {% if chapter_number != 31}
-    <div><a href="{{ url_for('show_chapter', chapter_number = chapter.chapter_number + 1)}}"></a>Next: {next_chapter.chapter_number} {next_chapter.title}</div>
+    {% if prev_chapter %}<div><a href="{{ url_for('show_chapter', chapter_number=prev_chapter.chapter_number) }}">
+    Previous: {{ prev_chapter.title }}</a></div>{% endif %}
+    {% if next_chapter %}<div><a href="{{ url_for('show_chapter', chapter_number=next_chapter.chapter_number) }}">
+    Next: {{ next_chapter.title }}</a></div>{% endif %}
 </nav>
-{% endblock %}
 {% endblock %}
