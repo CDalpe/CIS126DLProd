@@ -30,7 +30,7 @@ def show_chapter(chapter_number):
         ##TODO Write a handling page for this
     file_path = os.path.join(base_dir, 'content', 'chapters', current_chapter['file'])
     with open(file_path, 'r') as f:
-        content = markdown.markdown(f.read())
+        content = markdown.markdown(f.read(), extensions=['tables'])
     all_chapters = []
     for section in course_data['sections']:
         for chapter in section['chapters']:
@@ -52,7 +52,7 @@ def show_lab(chapter_number):
         ##TODO Write a handling page for this
     file_path = os.path.join(base_dir, 'content', 'labs', current_lab['lab_file'])
     with open(file_path, 'r') as f:
-        content = markdown.markdown(f.read())
+        content = markdown.markdown(f.read(), extensions=['tables'])
     return render_template('lab.html', content=content, current_lab=current_lab)
         
 if __name__ == "__main__":

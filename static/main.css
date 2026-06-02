@@ -162,6 +162,25 @@ main a{
     text-decoration: underline;
 }
 
+main table {
+    border-collapse: collapse;
+    width: 90%;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+main th, main td {
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    text-align: left;
+}
+
+main th {
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text)
+}
+
 nav[aria-label="Chapter Navigation"] {
     display: flex;
     justify-content: space-between;
