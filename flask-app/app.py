@@ -56,4 +56,4 @@ def show_lab(chapter_number):
     return render_template('lab.html', content=content, current_lab=current_lab)
         
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', debug=True)

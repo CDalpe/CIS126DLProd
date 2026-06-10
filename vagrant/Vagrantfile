@@ -1,0 +1,84 @@
+Vagrant.configure("2") do |config|
+
+config.vm.define "course-vm" do |course|
+    course.vm.box = "almalinux/9"
+    course.vm.hostname = "course-vm"
+    course.vm.network "private_network", ip: "192.168.56.10"
+    
+    course.vm.provider "virtualbox" do |vb|
+        vb.memory = 2048
+        vb.cpus = 1
+        vb.name = "course-vm"
+        vb.gui = true
+    end
+
+course.vm.provision "shell", inline: <<-SHELL
+    dnf update -y
+    dnf install -y python3 python3-pip git vim nano tmux tree net-tools bash-completion
+    pip3 install flask pyyaml markdown paramiko
+    ssh-keygen -t rsa -b 4096 -f /home/vagrant/.ssh/grading_key -N ""
+    cp /home/vagrant/.ssh/grading_key.pub /vagrant/grading_key.pub
+    git clone https://github.com/CDalpe/CIS126DLProd.git /home/vagrant/CIS126DL
+    chown -R vagrant:vagrant /home/vagrant/CIS126DL
+    echo '[Unit]' > /etc/systemd/system/flask-app.service
+    echo 'Description=CIS126DL Flask App' >> /etc/systemd/system/flask-app.service
+    echo 'After=network.target' >> /etc/systemd/system/flask-app.service
+    echo '' >> /etc/systemd/system/flask-app.service
+    echo '[Service]' >> /etc/systemd/system/flask-app.service
+    echo 'User=vagrant' >> /etc/systemd/system/flask-app.service
+    echo 'WorkingDirectory=/home/vagrant/CIS126DL' >> /etc/systemd/system/flask-app.service
+    echo 'ExecStart=/usr/bin/python3 /home/vagrant/CIS126DL/app.py' >> /etc/systemd/system/flask-app.service
+    echo 'Restart=always' >> /etc/systemd/system/flask-app.service
+    echo '' >> /etc/systemd/system/flask-app.service
+    echo '[Install]' >> /etc/systemd/system/flask-app.service
+    echo 'WantedBy=multi-user.target' >> /etc/systemd/system/flask-app.service
+    systemctl daemon-reload
+    systemctl enable flask-app
+    systemctl start flask-app
+    SHELL
+
+    end
+
+config.vm.define "server-vm" do |server|
+    server.vm.box = "almalinux/9"
+    server.vm.hostname = "server-vm"
+    server.vm.network "private_network", ip: "192.168.56.20"
+        
+    server.vm.provider "virtualbox" do |vb|
+        vb.memory = 1024
+        vb.cpus = 1
+        vb.name = "server-vm"
+    end
+
+server.vm.provision "shell", inline: <<-SHELL
+    dnf update -y
+    dnf install -y vim nano tmux tree net-tools bash-completion zsh
+    mkdir -p /home/vagrant/.ssh
+    cat /vagrant/grading_key.pub >> /home/vagrant/.ssh/authorized_keys
+    chmod 600 /home/vagrant/.ssh/authorized_keys
+    chown -R vagrant:vagrant /home/vagrant/.ssh
+    SHELL
+    end
+
+config.vm.define "client-vm" do |client|
+    client.vm.box = "almalinux/9"
+    client.vm.hostname = "client-vm"
+    client.vm.network "private_network", ip: "192.168.56.30"
+        
+    client.vm.provider "virtualbox" do |vb|
+        vb.memory = 1024
+        vb.cpus = 1
+        vb.name = "client-vm"
+    end
+
+client.vm.provision "shell", inline: <<-SHELL
+    dnf update -y
+    dnf install -y vim nano tmux tree net-tools bash-completion zsh
+    mkdir -p /home/vagrant/.ssh
+    cat /vagrant/grading_key.pub >> /home/vagrant/.ssh/authorized_keys
+    chmod 600 /home/vagrant/.ssh/authorized_keys
+    chown -R vagrant:vagrant /home/vagrant/.ssh
+    SHELL
+    end
+
+end
