@@ -9,7 +9,6 @@ config.vm.define "course-vm" do |course|
         vb.memory = 2048
         vb.cpus = 1
         vb.name = "course-vm"
-        vb.gui = true
     end
 
 course.vm.provision "shell", inline: <<-SHELL
@@ -26,8 +25,8 @@ course.vm.provision "shell", inline: <<-SHELL
     echo '' >> /etc/systemd/system/flask-app.service
     echo '[Service]' >> /etc/systemd/system/flask-app.service
     echo 'User=vagrant' >> /etc/systemd/system/flask-app.service
-    echo 'WorkingDirectory=/home/vagrant/CIS126DL' >> /etc/systemd/system/flask-app.service
-    echo 'ExecStart=/usr/bin/python3 /home/vagrant/CIS126DL/app.py' >> /etc/systemd/system/flask-app.service
+    echo 'WorkingDirectory=/home/vagrant/CIS126DL/flask-app' >> /etc/systemd/system/flask-app.service
+    echo 'ExecStart=/usr/bin/python3 /home/vagrant/CIS126DL/flask-app/app.py' >> /etc/systemd/system/flask-app.service
     echo 'Restart=always' >> /etc/systemd/system/flask-app.service
     echo '' >> /etc/systemd/system/flask-app.service
     echo '[Install]' >> /etc/systemd/system/flask-app.service
