@@ -31,7 +31,7 @@
         <li>A laptop or desktop computer with at least 8GB of RAM (Windows preferably, but Linux/Apple will work) </li>
         <li><a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> - available for free for personal and educational uses. This is the software that will run our guest VMs. <i>(Accept all installation defaults)</i></li>
         <li><a href="https://developer.hashicorp.com/vagrant/install">Vagrant</a> - this is what imports and configures the guest operating systems and sets up the virtual environment. <i>(Accept all installation defaults)</i></li>
-        <li><a href="https://github.com/CDalpe/CIS126DLProd"></a>Course Material - this is the book and labs</li>
+        <li><a href="https://github.com/CDalpe/CIS126DLProd">Course Material</a> - this is the book and labs</li>
     </ul>
 
     <h2>Environment Setup</h2>
@@ -55,14 +55,11 @@
                 <li>For Linux Users /home/{YOU}</li>
             </ul>
         </li>
-        <li>Use Vagrant to import and set up the environment. Copy the Vagrant file from <a href="">the Github Repo</a> into your directory, then run the following commands <i>This may take up to 20 minutes to run based on your internet connection and computer device power, be patient!</i>:</li>
-        <pre><code>
-            vagrant up course-vm<br>
-            vagrant up server-vm<br>
-            vagrant up client-vm
-        </code></pre>
+        <li>Use Vagrant to import and set up the environment. Copy the Vagrant file from <a href="https://github.com/CDalpe/CIS126DLProd/blob/main/vagrant/Vagrantfile">the Github Repo</a> into your directory, then run the following commands <i>This may take up to 20 minutes to run based on your internet connection and computer device power, be patient!</i>:</li>
+<pre><code>vagrant up course-vm
+vagrant up server-vm
+vagrant up client-vm</code></pre>
         <li>Once completed, these virtual machines will now be reachable from your computing device. The button below will take you to the home page of the course</li>
-        <button onclick="window.location.href='http://192.168.56.10:5000/'">Go To Course Home Page</button>
-
     </ol>
+    <button aria-label="Navigate to course home page" onclick="window.location.href='http://192.168.56.10:5000/'">Go To Course Home Page</button>
 </body>
