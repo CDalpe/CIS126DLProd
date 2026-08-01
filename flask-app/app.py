@@ -7,7 +7,7 @@ base_dir = os.path.dirname(os.path.abspath(__file__))
 
 course_data = None
 with app.app_context():
-    with open(os.path.join(base_dir, 'CIS126.yaml'), 'r') as f:
+    with open(os.path.join(base_dir, 'course.yaml'), 'r') as f:
         course_data = yaml.safe_load(f)
 
 @app.context_processor
