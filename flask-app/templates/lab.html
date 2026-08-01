@@ -1,12 +1,22 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
 Chapter {{ current_lab.chapter_number }} Lab
 {% endblock %}
 
 {% block content %}
-
 <h1>Lab {{ current_lab.chapter_number }}: {{ current_lab.title }}</h1>
 <div>{{ content | safe }}</div>
+<nav aria-label="Chapter Navigation">
+    <div>
+    {% if prev_url %}
+        <a href="{{ prev_url }}">Previous: {{ prev_label }}</a>
+    {% endif %}
+    </div>
+    <div>
+    {% if next_url %}
+        <a href="{{ next_url }}">Next: {{ next_label }}</a>
+    {% endif %}
+    </div>
+</nav>
 {% endblock %}

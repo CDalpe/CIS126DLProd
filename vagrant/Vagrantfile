@@ -58,8 +58,8 @@ server.vm.provision "shell", inline: <<-SHELL
     chown vagrant:vagrant /home/evidence
     mkdir -p /backups/website
     chown -R vagrant:vagrant /backups
-    cp https://github.com/CDalpe/CIS126DLProd/blob/main/vagrant/corrupted_index.html /var/www/html/index.html
-    cp https://github.com/CDalpe/CIS126DLProd/blob/main/vagrant/index.html/backups/website/index.html
+    curl -o /var/www/html/index.html https://raw.githubusercontent.com/CDalpe/CIS126DLProd/main/vagrant/corrupted_index.html
+    curl -o /backups/website/index.html https://raw.githubusercontent.com/CDalpe/CIS126DLProd/main/vagrant/backup_index.html
     mkdir -p /home/vagrant/.ssh
     cat /vagrant/grading_key.pub >> /home/vagrant/.ssh/authorized_keys
     chmod 600 /home/vagrant/.ssh/authorized_keys
