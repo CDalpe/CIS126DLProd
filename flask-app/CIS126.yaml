@@ -1,0 +1,108 @@
+sections:
+  - title: Introduction
+    section_number: 126
+    chapters:
+      - title: Introduction
+        file: ch01.md
+        chapter_number: 1
+        description: The History of Linux and the Open-Source Software Movement
+        has_lab: true
+        lab_file: lab01.md
+          
+      - title: Moving through the Operating System
+        file: ch02.md
+        chapter_number: 2
+        description: Operating System Basics
+        has_lab: true
+        lab_file: lab02.md
+          
+      - title: Install Operations
+        file: ch03.md
+        chapter_number: 3
+        description: Installing and localizing
+        has_lab: true
+        lab_file: lab03.md
+          
+      - title: Boot Process and System Services
+        file: ch04.md
+        chapter_number: 4
+        description: Installation basics
+        has_lab: true
+        lab_file: lab04.md
+        
+      - title: Graphical User Interface
+        file: ch05.md
+        chapter_number: 5
+        description: GUIs, Accesibility and RDP
+        has_lab: true
+        lab_file: lab05.md
+          
+      - title: Installing Software
+        file: ch06.md
+        chapter_number: 6
+        description: Install software using RPM, dpkg, DNF, yum
+        has_lab: true
+        lab_file: lab06.md
+        
+      - title: Managing Users and Groups
+        file: ch07.md
+        chapter_number: 7
+        description: Manage users and groups from the command line interface
+        has_lab: true
+        lab_file: lab07.md
+          
+      - title: Files and Directories
+        file: ch08.md
+        chapter_number: 8
+        description: Management of files, file hierarchy, and storage
+        has_lab: true
+        lab_file: lab08.md
+          
+      - title: Kernel Modules
+        file: ch09.md
+        chapter_number: 9
+        description: Installation and Removal of Kernel Modules
+        has_lab: true
+        lab_file: lab09.md
+
+      - title: Processes
+        file: ch10.md
+        chapter_number: 10
+        description: View/Manage Processes
+        has_lab: true
+        lab_file: lab10.md
+
+      - title: System Logging
+        file: ch11.md
+        chapter_number: 11
+        description: view and manage uptime, system time, and log files
+        has_lab: true
+        lab_file: lab11.md
+
+      - title: Networks and Networking
+        file: ch12.md
+        chapter_number: 12
+        description: Basics of IPv4, IPv6, and the network stack
+        has_lab: true
+        lab_file: lab12.md
+
+      - title: Virtualizing Linux
+        file: ch13.md
+        chapter_number: 13
+        description: Sandboxing, containerizing, and virtualizing Linux
+        has_lab: true
+        lab_file: lab13.md
+
+      - title: Automation
+        file: ch14.md
+        chapter_number: 14
+        description: automating tasks via Bash and Python
+        has_lab: true
+        lab_file: lab14.md
+
+      - title: Securtity
+        file: ch15.md
+        chapter_number: 15
+        description: AppArmor, VPN, Security User Management
+        has_lab: true
+        lab_file: lab15.md
