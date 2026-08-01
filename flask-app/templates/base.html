@@ -28,9 +28,6 @@
         {% for chapter in section.chapters %} 
             <div class="chapter">
             <a href="{{ url_for('show_chapter', chapter_number=chapter.chapter_number) }}">{{ chapter.title }}</a>
-        {% if chapter.has_lab %} 
-            <div><a href="{{ url_for('show_lab', chapter_number=chapter.chapter_number) }}">Lab {{ chapter.chapter_number}}</a>
-        </div>{% endif %}
 
         </div>{% endfor %}
         
