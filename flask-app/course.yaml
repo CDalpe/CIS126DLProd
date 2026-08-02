@@ -8,6 +8,7 @@ sections:
         description: The History of Linux and the Open-Source Software Movement
         has_lab: true
         lab_file: lab01.md
+        lab_title: Restoring the Web Server
           
       - title: Moving through the Operating System
         file: ch02.md
@@ -33,7 +34,7 @@ sections:
       - title: Graphical User Interface
         file: ch05.md
         chapter_number: 5
-        description: GUIs, Accesibility and RDP
+        description: GUIs, Accessibility and RDP
         has_lab: true
         lab_file: lab05.md
           
@@ -100,7 +101,7 @@ sections:
         has_lab: true
         lab_file: lab14.md
 
-      - title: Securtity
+      - title: Security
         file: ch15.md
         chapter_number: 15
         description: AppArmor, VPN, Security User Management
