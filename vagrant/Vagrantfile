@@ -15,7 +15,7 @@ course.vm.provision "shell", inline: <<-SHELL
     dnf update -y
     dnf install -y python3 python3-pip git vim nano tmux tree net-tools bash-completion
     pip3 install flask pyyaml markdown paramiko
-    ssh-keygen -t rsa -b 4096 -f /home/vagrant/.ssh/grading_key -N ""
+    ssh-keygen -t ed25519 -f /home/vagrant/.ssh/grading_key -N ""
     cp /home/vagrant/.ssh/grading_key.pub /vagrant/grading_key.pub
     git clone https://github.com/CDalpe/CIS126DLProd.git /home/vagrant/CIS126DL
     chown -R vagrant:vagrant /home/vagrant/CIS126DL
@@ -32,6 +32,10 @@ course.vm.provision "shell", inline: <<-SHELL
     echo '[Install]' >> /etc/systemd/system/flask-app.service
     echo 'WantedBy=multi-user.target' >> /etc/systemd/system/flask-app.service
     echo 'SALT = "thechandlergilbertcoyoteswelcomeyoutoclass"' > /home/vagrant/CIS126DL/flask-app/grading/salt.py
+    touch /home/vagrant/CIS126DL/flask-app/grading/__init__.py
+    touch /home/vagrant/CIS126DL/flask-app/grading/labs/__init__.py
+    chown vagrant:vagrant /home/vagrant/.ssh/grading_key
+    chown vagrant:vagrant /home/vagrant/.ssh/grading_key.pub
     systemctl daemon-reload
     systemctl enable flask-app
     systemctl start flask-app
@@ -65,6 +69,8 @@ server.vm.provision "shell", inline: <<-SHELL
     cat /vagrant/grading_key.pub >> /home/vagrant/.ssh/authorized_keys
     chmod 600 /home/vagrant/.ssh/authorized_keys
     chown -R vagrant:vagrant /home/vagrant/.ssh
+    chown -R vagrant:vagrant /var/www/html
+    chmod -R 755 /var/www/html
 SHELL
 end
 
