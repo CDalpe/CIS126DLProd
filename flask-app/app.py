@@ -84,7 +84,7 @@ def show_lab(chapter_number):
 
     file_path = os.path.join(base_dir, 'content', 'labs', current_lab['lab_file'])
     with open(file_path, 'r') as f:
-        content = markdown.markdown(f.read(), extensions=['tables', 'fenced_code'])
+        content = markdown.markdown(f.read(), extensions=['tables', 'fenced_code', 'codehilite'])
 
     all_chapters = []
     for section in course_data['sections']:
@@ -111,6 +111,14 @@ def show_lab(chapter_number):
         prev_label=prev_label,
         next_url=next_url,
         next_label=next_label)
-        
+
+@app.route('/grade/<int:lab_number>')
+def grade_lab_route(lab_number):
+    from grading.grade_lab import grade_lab
+    result = grade_lab(lab_number)
+    if result is None:
+        return "Grading Failed", 500
+    return render_template('results.html', result=result, lab_number=lab_number)
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', debug=True)

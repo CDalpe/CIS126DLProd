@@ -270,3 +270,18 @@ main li {
     margin-right: auto;
     max-width: 90%;
 }
+
+.grade-button {
+    margin-left: auto;
+    margin-right: auto;
+    border-color: (var(--border-color));
+    font-family: var(--font-code);
+    background-color: var(--code-bg);
+    color: var(--code-color);
+}
+
+.grade-section {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+}
