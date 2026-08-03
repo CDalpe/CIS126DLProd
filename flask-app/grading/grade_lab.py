@@ -34,4 +34,5 @@ def grade_lab(lab_number):
         hash_value = generate_hash(points)
         return {'points': points, 'hash': hash_value, 'objectives': objectives}
     except Exception as e:
+        print(f"Grading error: {e}")
         return None
