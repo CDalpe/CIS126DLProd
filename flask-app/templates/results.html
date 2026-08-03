@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Lab Results{% endblock %}
+
+{% block content %}
+    <h1>Lab {{ lab_number }} Results</h1>
+    <p>Score: {{ result.points }} / 20</p>
+    <p>Hash: <code>{{ result.hash }}</code></p>
+    <table>
+        <caption>Lab Objectives</caption>
+        <thead>
+            <tr>
+                <th scope="col">Objective</th>
+                <th scope="col">Points Earned</th>
+                <th scope="col">Points Possible</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for objective in result.objectives %}
+            <tr><th scope="row">{{ objective.objective }}</th>
+            <td>{{ objective.points_earned }}</td>
+            <td>{{ objective.points_possible }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    To receive credit for the lab work, the hash <strong>must</strong> be submitted to the LMS for the corresponding lab. Seeing this page does not count as having received any credit.
+{% endblock %}

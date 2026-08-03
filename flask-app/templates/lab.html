@@ -7,13 +7,7 @@ Chapter {{ current_lab.chapter_number }} Lab
 {% block content %}
 <h1>Lab {{ current_lab.chapter_number }}: {{ current_lab.lab_title }}</h1>
 <div>{{ content | safe }}</div>
-<div class="grade-section">
-    <a href="{{ url_for('grade_lab_route', lab_number=current_lab.chapter_number) }}" 
-       class="grade-button"
-       aria-label="Grade Lab {{ current_lab.chapter_number }}">
-        Grade Lab
-    </a>
-</div>
+
 <nav aria-label="Chapter Navigation">
     <div>
     {% if prev_url %}
@@ -26,4 +20,12 @@ Chapter {{ current_lab.chapter_number }} Lab
     {% endif %}
     </div>
 </nav>
+
+<div class="grade-section">
+    <a href="{{ url_for('grade_lab_route', lab_number=current_lab.chapter_number) }}" 
+       class="grade-button"
+       aria-label="Grade Lab {{ current_lab.chapter_number }}">
+        Grade Lab
+    </a>
+</div>
 {% endblock %}
