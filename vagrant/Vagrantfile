@@ -31,6 +31,7 @@ course.vm.provision "shell", inline: <<-SHELL
     echo '' >> /etc/systemd/system/flask-app.service
     echo '[Install]' >> /etc/systemd/system/flask-app.service
     echo 'WantedBy=multi-user.target' >> /etc/systemd/system/flask-app.service
+    echo 'SALT = "thechandlergilbertcoyoteswelcomeyoutoclass"' > /home/vagrant/CIS126DL/flask-app/grading/salt.py
     systemctl daemon-reload
     systemctl enable flask-app
     systemctl start flask-app

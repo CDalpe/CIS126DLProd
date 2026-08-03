@@ -114,8 +114,8 @@ def show_lab(chapter_number):
 
 @app.route('/grade/<int:lab_number>')
 def grade_lab_route(lab_number):
-    from grading.grade_lab import grade_lab
-    result = grade_lab(lab_number)
+    import grading.grade_lab as grader
+    result = grader.grade_lab(lab_number)
     if result is None:
         return "Grading Failed", 500
     return render_template('results.html', result=result, lab_number=lab_number)

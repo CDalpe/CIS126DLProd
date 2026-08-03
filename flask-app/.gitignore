@@ -2,3 +2,4 @@ grading/salt.py
 __pycahce__/
 *.__pycahce__.
 .vagrant/
+Vagrantfile
