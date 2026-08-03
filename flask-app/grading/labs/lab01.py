@@ -1,5 +1,3 @@
-import grade_lab
-
 def run_checks(connect, run_command):
     points = 0
     objectives = [{'objective': 'file_exists_in_evidence', 'points_possible': 3, 'points_earned': 0},
