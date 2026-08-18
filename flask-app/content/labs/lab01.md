@@ -134,13 +134,13 @@ Now that we know we have access to the server. We need to first remove the defac
 /var/www/html/index.html
 ```
 
-But the file is located *inside* the directory, so we don't need to call the whole file, only the directory in which it is contained (*leave off the index.html*). If you call the absolute using change directory, Linux should be able to navigate directly to it. 
+But the file is located *inside* the directory, so we don't need to call the whole file, only the directory in which it is contained (*leave off the index.html*). If you call the absolute path using change directory, Linux should be able to navigate directly to it. 
 
 ### Objective 3 - Copy the Corrupt File into Evidence
 
 This is not something one would realistically do during an incident, admittedly. During an incident the first step would be to capture a forensic image, we would not back up the evidence to a file on the device. We would capture a forensic image before doing anything else so as to preserve the evidence for a future post-mortem report to stakeholders. Since incident response is outside the scope of this class, we can safely notionalize that copying the file into an evidence folder is creating a forensic image. 
 
-Using the *cp* command, copy the *index.html* file from its place in **/var/www/html/** to /home/evidence
+Using the ```cp``` command, copy the *index.html* file from its place in **/var/www/html/** to **/home/evidence**
 
 ```bash
 cp <source> <destination>
@@ -148,11 +148,11 @@ cp <source> <destination>
 
 ### Objective 4 - Delete the Corrupted Webfile
 
-Using the *rm* command, delete the *index.html* that exists in **/var/www/html/**.
+Using the ```rm``` command, delete the *index.html* that exists in **/var/www/html/**.
 
 ### Objective 5 - Create a New Index File
 
-Using the *touch* command, create a new *index.html*
+Using the ```touch``` command, create a new *index.html*
 
 ### Objective 6 - Paste New Content into Index
 
